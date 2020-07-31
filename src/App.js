@@ -3,6 +3,7 @@ import Radium, { StyleRoot } from 'radium';
 import styled from 'styled-components';
 import './App.css';
 import Person from './Person/Person';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 // const App  = (props) => {
 //   const [ personsState, setPersonsState ] = useState({
@@ -112,12 +113,14 @@ class App extends Component {
       persons = (
         <div>
           {
-            this.state.persons.map((person, index) => (<Person
-                key={person.id}
+            this.state.persons.map((person, index) => (
+            <ErrorBoundary key={person.id}>
+              <Person
                 name={person.name} 
                 age={person.age}
                 click={() => this.deleteHandler(index)}
                 changed={(event) => this.nameChangeHandler(event, person.id)}/>
+            </ErrorBoundary>
             ))
           }
         </div> 
