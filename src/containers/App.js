@@ -2,8 +2,8 @@ import React, { Component, useState } from 'react';
 import Radium, { StyleRoot } from 'radium';
 import styled from 'styled-components';
 import './App.css';
-import Person from './Person/Person';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+import Person from '../components/Persons/Person/Person';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 // const App  = (props) => {
 //   const [ personsState, setPersonsState ] = useState({
