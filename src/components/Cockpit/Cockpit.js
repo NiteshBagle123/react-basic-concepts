@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import './Cockpit.css';
 
@@ -17,47 +17,49 @@ const StyledButton = styled.button`
 `;
 
 const cockpit = props => {
-    useEffect(() => {
-      console.log('[Cockpit.js] useEffect');
+  const toggleButtonRef = useRef(null);
+
+  useEffect(() => {
+    console.log('[Cockpit.js] useEffect');
       // https request
       // const timer = setTimeout(()=> {
       //   alert('Save data in cloud');
       // }, 1000);
-      setTimeout(()=> {
-        alert('Save data in cloud');
-      }, 1000);
-      return(() => {
-        // clearTimeout(timer);
-        console.log('[Cockpit.js] cleanup work in useEffect');
-      });
-    }, []);
-
-    useEffect(() => {
-      console.log('[Cockpit.js] useEffect-2');
-      return(() => {
-        console.log('[Cockpit.js] cleanup work in useEffect-2');
-      });
+    toggleButtonRef.current.click();
+    return(() => {
+      // clearTimeout(timer);
+      console.log('[Cockpit.js] cleanup work in useEffect');
     });
-    let classes = [];
-    if(props.personsLength <= 2){
-      classes.push('red');
-    }
+  }, []);
 
-    if(props.personsLength <=1){
-      classes.push('bold');
-    }
+  useEffect(() => {
+    console.log('[Cockpit.js] useEffect-2');
+    return(() => {
+      console.log('[Cockpit.js] cleanup work in useEffect-2');
+    });
+  });
 
-    return(
-        <React.Fragment className={classes.Cockpit}>
-            <h1>{props.title}</h1>
-            <p className={classes.join(' ')}>This is really working!</p>
-            <StyledButton 
-                alt={props.showPerson.toString()} 
-                onClick={props.togglePerson}>
-                    Switch Name
-            </StyledButton>
-        </React.Fragment>
-    )
+  let classes = [];
+  if(props.personsLength <= 2){
+    classes.push('red');
+  }
+
+  if(props.personsLength <=1){
+    classes.push('bold');
+  }
+
+  return(
+    <React.Fragment className={classes.Cockpit}>
+      <h1>{props.title}</h1>
+      <p className={classes.join(' ')}>This is really working!</p>
+      <StyledButton
+        ref={toggleButtonRef} 
+        alt={props.showPerson.toString()} 
+        onClick={props.togglePerson}>
+          Switch Name
+      </StyledButton>
+    </React.Fragment>
+  )
 };
 
 export default React.memo(cockpit);
