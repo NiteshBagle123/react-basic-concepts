@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import styled from 'styled-components';
 import './Cockpit.css';
+import AuthContext from '../../context/auth-context';
 
 const StyledButton = styled.button`
   background-color: ${props => props.alt && true ? 'red' : 'green'};
@@ -18,7 +19,7 @@ const StyledButton = styled.button`
 
 const cockpit = props => {
   const toggleButtonRef = useRef(null);
-
+  const context = useContext(AuthContext);
   useEffect(() => {
     console.log('[Cockpit.js] useEffect');
       // https request

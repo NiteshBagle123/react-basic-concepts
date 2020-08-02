@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import AuthContext from '../../../context/auth-context';
 
 // import './Person.css';
 
@@ -24,15 +25,20 @@ class Person extends Component {
         super(props);
         this.inputElementRef = React.createRef();
     }
+
+    static contextType = AuthContext;
     componentDidMount() {
         // this.inputElement.focus();
         this.inputElementRef.current.focus();
+        console.log(this.context.login);
     } 
     render(){
         console.log('[Person.js] rendering...');
         return(
             <StyledDiv>
-                { this.props.isAuth ? <p>Person authenticated</p> : null }
+                {/* <AuthContext.Consumer>
+                    {(context) => { context.authenticated ? <p>Person authenticated</p> : null }}
+                </AuthContext.Consumer> */}
                 <p onClick={this.props.click}>My name is {this.props.name} and age {this.props.age}</p>
                 <p>{this.props.children}</p>
                 <input
