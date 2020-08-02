@@ -32,6 +32,7 @@ class Person extends Component {
         console.log('[Person.js] rendering...');
         return(
             <StyledDiv>
+                { this.props.isAuth ? <p>Person authenticated</p> : null }
                 <p onClick={this.props.click}>My name is {this.props.name} and age {this.props.age}</p>
                 <p>{this.props.children}</p>
                 <input

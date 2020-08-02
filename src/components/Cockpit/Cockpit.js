@@ -58,6 +58,7 @@ const cockpit = props => {
         onClick={props.togglePerson}>
           Switch Name
       </StyledButton>
+      <button onClick={props.logIn}>Log In</button>
     </React.Fragment>
   )
 };
