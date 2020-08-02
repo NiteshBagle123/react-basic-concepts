@@ -24,7 +24,10 @@ class Person extends Component {
             <StyledDiv>
                 <p onClick={this.props.click}>My name is {this.props.name} and age {this.props.age}</p>
                 <p>{this.props.children}</p>
-                <input type="text" onChange={this.props.changed} value={this.props.name}/>
+                <input 
+                    type="text" 
+                    onChange={this.props.changed} 
+                    value={this.props.name} />
             </StyledDiv>
         );
     }  

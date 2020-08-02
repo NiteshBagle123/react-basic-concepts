@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
+// import Aux from '../hoc/Auxilary';
 
 class App extends Component {
   constructor(props){

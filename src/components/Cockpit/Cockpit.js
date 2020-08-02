@@ -48,7 +48,7 @@ const cockpit = props => {
     }
 
     return(
-        <div className={classes.Cockpit}>
+        <React.Fragment className={classes.Cockpit}>
             <h1>{props.title}</h1>
             <p className={classes.join(' ')}>This is really working!</p>
             <StyledButton 
@@ -56,7 +56,7 @@ const cockpit = props => {
                 onClick={props.togglePerson}>
                     Switch Name
             </StyledButton>
-        </div>
+        </React.Fragment>
     )
 };
 
